@@ -28,3 +28,7 @@
 	
 	![run](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/ThreadRun.png)
 	
+	**Al llamarse el método run():** se ejecuta Thread1.run() se espera a que termina, llama a Thread2.run() este termina y finalmente llama a Thread3.run().
+	
+	**Al iniciarse con start():** Inicia un Thread1 y su tarea, en los pocos milisegundos se inicia también el Thread2, asímismo el Thread3, lo que hace que los 3 esten funcionando al mismo tiempo, generando el cambio en la salida.
+

@@ -53,25 +53,46 @@
 
 #### **Parte II.I Discusión**
 #### **Parte III - Evaluación de Desempeño**
+ * Para la ejecución del programa se utilizo la siguiente linea de comandos 
+	    ```
+         mvn package -U
+         mvn exec:java -Dexec.mainClass="edu.eci.arsw.blacklistvalidator.Main"
+        ```
 
 1.    1 solo hilo.
 
-![1Threads](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/1Threads.png)
+![1ThreadExec](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/Exec1Thread.jpg)
+<br>
+![1ThreadA](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/1ThreadA.png)
 
 2.    Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html).
-
-
-
-3.    Tantos hilos como el doble de núcleos de procesamiento.
-
+    * En este caso para saber cuantos nucleos de procesamiento tenemos usaremos la clase Runtime y con el metodo <i><b>availableProcessors()<i/></b> sabremos el numero de nucleos de procesamiento hay disponible en la maquina virtual de java  
+    
+![Runtime](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/Runtime.jpg) <br>
+<br>    
+![availableProcessors](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/aP.jpg) <br>
+<br>
+    8 hilos                                                                                                             
+<br>
+![8ThreadsExec](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/Exec8Threads.jpg)
+<br> 
+![CoreThreadA](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/CoreThreadA.png)
+    
+3.    Tantos hilos como el doble de núcleos de procesamiento, 16 hilos.
+![16ThreadsExec](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/Exec16Threads.jpg)
+<br>
 ![DobleCoreThreadA](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/DobleCoreThreadA.png)
 
 4.    50 hilos.
 
+![50ThreadsExec](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/Exec50Threads.jpg)
+<br>
 ![50Threads](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/50Threads.png)
 
 5.    100 hilos.
 
+![100ThreadsExec](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/Exec100Threads.jpg)
+<br>
 ![100Threads](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/100Threads.png)
 
 Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tiempo de solución vs. número de hilos. Analice y plantee hipótesis con su compañero para las siguientes preguntas (puede tener en cuenta lo reportado por jVisualVM):

@@ -80,7 +80,7 @@ public class HostBlackListsValidator {
         int part = skds.getRegisteredServersCount()/n;
 
         for (int i = 0; i < n; i++){
-            if (i != n-1){
+            if (i != n-1 ){
                 abl.add(new BlackListThread(ipaddress, i * part, ((i+1) * part) - 1, skds));
             }else{
                 abl.add(new BlackListThread(ipaddress, i * part, skds.getRegisteredServersCount(), skds));
@@ -94,7 +94,7 @@ public class HostBlackListsValidator {
             }
             ocurrencesCount += x.getOcurrences();
             blackListOcurrences.addAll(x.getOcurrencesList());
-            checkedListsCount += x.getLast();
+            checkedListsCount += x.getCheckedListsCount();
         }
 
         if (ocurrencesCount>=BLACK_LIST_ALARM_COUNT){

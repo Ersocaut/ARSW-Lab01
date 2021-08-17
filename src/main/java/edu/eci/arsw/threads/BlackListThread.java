@@ -10,6 +10,7 @@ public class BlackListThread extends Thread{
     private String host;
     private int a, b;
     private int ocurrences = 0;
+    private int checkedListsCount = 0;
     private HostBlacklistsDataSourceFacade skds;
     private LinkedList<Integer> ocurrencesList = new LinkedList<>();
 
@@ -22,6 +23,7 @@ public class BlackListThread extends Thread{
 
     public void run(){
         for (int i = a; i < b; i++){
+            checkedListsCount++;
             if (skds.isInBlackListServer(i,host)){
                 ocurrences++;
                 ocurrencesList.add(i);
@@ -37,7 +39,7 @@ public class BlackListThread extends Thread{
         return ocurrencesList;
     }
 
-    public int getLast(){
-        return b;
+    public int getCheckedListsCount() {
+        return checkedListsCount;
     }
 }

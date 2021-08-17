@@ -6,6 +6,9 @@
 package edu.eci.arsw.blacklistvalidator;
 
 import edu.eci.arsw.spamkeywordsdatasource.HostBlacklistsDataSourceFacade;
+import edu.eci.arsw.threads.BlackListThread;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -62,7 +65,49 @@ public class HostBlackListsValidator {
         
         return blackListOcurrences;
     }
-    
+
+    public List<Integer> checkHost(String ipaddress, int n){
+        LinkedList<Integer> blackListOcurrences = new LinkedList<>();
+
+        int ocurrencesCount = 0;
+
+        int checkedListsCount = 0;
+
+        HostBlacklistsDataSourceFacade skds = HostBlacklistsDataSourceFacade.getInstance();
+
+        ArrayList<BlackListThread> abl = new ArrayList<BlackListThread>();
+
+        int part = skds.getRegisteredServersCount()/n;
+
+        for (int i = 0; i < n; i++){
+            if (i != n-1){
+                abl.add(new BlackListThread(ipaddress, i * part, ((i+1) * part) - 1, skds));
+            }else{
+                abl.add(new BlackListThread(ipaddress, i * part, skds.getRegisteredServersCount(), skds));
+            }
+            abl.get(i).start();
+        }
+
+        for (BlackListThread x : abl){
+            while(x.isAlive()){
+                continue;
+            }
+            ocurrencesCount += x.getOcurrences();
+            blackListOcurrences.addAll(x.getOcurrencesList());
+            checkedListsCount += x.getLast();
+        }
+
+        if (ocurrencesCount>=BLACK_LIST_ALARM_COUNT){
+            skds.reportAsNotTrustworthy(ipaddress);
+        }
+        else{
+            skds.reportAsTrustworthy(ipaddress);
+        }
+
+        LOG.log(Level.INFO, "Checked Black Lists:{0} of {1}", new Object[]{checkedListsCount, skds.getRegisteredServersCount()});
+
+        return blackListOcurrences;
+    }
     
     private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName());
     

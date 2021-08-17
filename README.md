@@ -26,11 +26,12 @@
 	- Inicie los tres hilos con 'start()'.
 	
 	- Ejecute y revise la salida por pantalla: 
-	    * Para la ejecución del programa se utilizo la siguiente linea de comandos 
+	    - Para la ejecución del programa se utilizo la siguiente linea de comandos:
 	    ```
-         mvn package -U
-         mvn exec:java -Dexec.mainClass="edu.eci.arsw.threads.CountThreadsMain"
-        ```
+	    mvn package -U
+	    mvn exec:java -Dexec.mainClass="edu.eci.arsw.threads.CountThreadsMain"
+	    ```
+	
 	La ejecución de los hilos realizando <b>.start()<b/> resulta en una salida de números desordenada.
 	
 	![start](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/ThreadStart.png)
@@ -53,10 +54,11 @@
 
 #### **Parte II.I Discusión**
 #### **Parte III - Evaluación de Desempeño**
- * Para la ejecución del programa se utilizo la siguiente linea de comandos 
-	    ```
-         mvn package -U
-         mvn exec:java -Dexec.mainClass="edu.eci.arsw.blacklistvalidator.Main"
+
+* Para la ejecución del programa se utilizo la siguiente linea de comandos:
+	```
+	mvn package -U
+        mvn exec:java -Dexec.mainClass="edu.eci.arsw.blacklistvalidator.Main"
         ```
 
 1.    1 solo hilo.
@@ -66,9 +68,10 @@
 ![1ThreadA](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/1ThreadA.png)
 
 2.    Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html).
-    * En este caso para saber cuantos nucleos de procesamiento tenemos usaremos la clase Runtime y con el metodo <i><b>availableProcessors()<i/></b> sabremos el numero de nucleos de procesamiento hay disponible en la maquina virtual de java  
+	
+En este caso para saber cuantos nucleos de procesamiento tenemos usaremos la clase Runtime y con el metodo <i> <b> availableProcessors() </i> </b> sabremos el numero de nucleos de procesamiento hay disponible en la maquina virtual de java  
     
-![Runtime](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/Runtime.jpg) <br>
+![Runtime](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/RunTime.jpg)
 <br>    
 ![availableProcessors](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/aP.jpg) <br>
 <br>
@@ -79,6 +82,7 @@
 ![CoreThreadA](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/CoreThreadA.png)
     
 3.    Tantos hilos como el doble de núcleos de procesamiento, 16 hilos.
+	
 ![16ThreadsExec](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/Exec16Threads.jpg)
 <br>
 ![DobleCoreThreadA](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/DobleCoreThreadA.png)

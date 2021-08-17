@@ -51,8 +51,28 @@
 	
 #### **Parte II - Ejercicio Black List Search**
 
+Como se puede observar se modificó el código de tal forma que fueran los threads los cuales revisaran en un rango específico de las diferentes listas negras, para esto se creó una nueva clase llamada <b><i>BlackListThread</i></b>.
+
+##### Clase Thread
+![threadClass](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/threadClass.jpg)
+
+##### Metodo Check
+En este metodo se utiliza la solucion "divide y venceras",esto ya que se esta haciendo que no sea el metodo el que revise todas las listas existentes, si no que sean los threads los que revisen de manera concurrente diferentes rangos de todas las listas negras. 
+
+![checkMethod](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/checkMethod.jpg)
+
 
 #### **Parte II.I Discusión**
+<p style="text-align:justify">
+La estrategia de paralelismo antes implementada es ineficiente en ciertos casos, pues la búsqueda se sigue realizando aún cuando los N hilos (en su conjunto) ya hayan encontrado el número mínimo de ocurrencias requeridas para reportar al servidor como malicioso. Cómo se podría modificar la implementación para minimizar el número de consultas en estos casos?, qué elemento nuevo traería esto al problema?
+</p>
+
+<p style="text-align:justify">
+Para evitar que se sigan realizando validaciones de manera innecesaria se podría colocar una variable común (global) entre los threads, ya que esta permitiría que todos los threads sepan y puedan verificar dicha variable y parar cuando se encuentre el número mínimo de ocurrencias requeridas para reportar al servidor como malicioso, claramente no es tan sencillo, ya que para que esta nueva idea funcione se debe garantizar siempre <b>la exclusión mutua</b> la cual dice que se puede usar un recurso por un thread a la vez, cuando el recurso es solicitado de forma simultánea por varios threads este debe ser concedido a uno de ellos en un tiempo finito y liberarlo para que el siguiente en la fila lo tome.
+</p>>
+
+       
+
 #### **Parte III - Evaluación de Desempeño**
 
 * Para la ejecución del programa se utilizo la siguiente linea de comandos:
@@ -69,7 +89,7 @@
 
 2.    Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html).
 	
-En este caso para saber cuantos nucleos de procesamiento tenemos usaremos la clase Runtime y con el metodo <i> <b> availableProcessors() </i> </b> sabremos el numero de nucleos de procesamiento hay disponible en la maquina virtual de java  
+En este caso para saber cuantos nucleos de procesamiento tenemos usaremos la clase Runtime y con el metodo <i> <b> availableProcessors() </i> </b> sabremos el numero de nucleos de procesamiento que hay disponible en la maquina virtual de java  
     
 ![Runtime](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/RunTime.jpg)
 <br>    

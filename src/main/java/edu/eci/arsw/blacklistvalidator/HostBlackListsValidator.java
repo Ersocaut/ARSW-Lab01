@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class HostBlackListsValidator {
 
-    private static final int BLACK_LIST_ALARM_COUNT=5;
+    private static final int BLACK_LIST_ALARM_COUNT = 5;
     
     /**
      * Check the given host's IP address in all the available black lists,
@@ -31,14 +31,15 @@ public class HostBlackListsValidator {
      */
     public List<Integer> checkHost(String ipaddress){
         
-        LinkedList<Integer> blackListOcurrences=new LinkedList<>();
+        LinkedList<Integer> blackListOcurrences = new LinkedList<>();
         
-        int ocurrencesCount=0;
+        int ocurrencesCount = 0;
         
-        HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
+        HostBlacklistsDataSourceFacade skds = HostBlacklistsDataSourceFacade.getInstance();
         
-        int checkedListsCount=0;
-        
+        int checkedListsCount = 0;
+
+        // skds.getRegisteredServersCount() -> Verifica que aun haya listas de servidores por verificar
         for (int i=0;i<skds.getRegisteredServersCount() && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
             checkedListsCount++;
             

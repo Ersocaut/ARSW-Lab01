@@ -57,7 +57,7 @@ Como se puede observar se modificó el código de tal forma que fueran los threa
 ![threadClass](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/threadClass.jpg)
 
 ##### Metodo Check
-En este metodo se utiliza la solucion "divide y venceras",esto ya que se esta haciendo que no sea el metodo el que revise todas las listas existentes, si no que sean los threads los que revisen de manera concurrente diferentes rangos de todas las listas negras. 
+En este metodo se utiliza la solucion "divide y venceras", esto ya que se esta haciendo que no sea el metodo el que revise todas las listas existentes, si no que sean los threads los que revisen de manera concurrente diferentes rangos de todas las listas negras. 
 
 ![checkMethod](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/checkMethod.jpg)
 

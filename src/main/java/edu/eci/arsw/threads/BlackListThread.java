@@ -22,7 +22,7 @@ public class BlackListThread extends Thread{
     }
 
     public void run(){
-        for (int i = a; i < b; i++){
+        for (int i = a; i <= b; i++){
             checkedListsCount++;
             if (skds.isInBlackListServer(i,host)){
                 ocurrences++;

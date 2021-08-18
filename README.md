@@ -134,7 +134,7 @@ En este caso para saber cuantos nucleos de procesamiento tenemos usaremos la cla
 
 Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tiempo de solución vs. número de hilos. 
 
-<img src="img/TiempoVSHilos.png" alt="graficaTiempoVSHilos" style="width: 250px;height: 250px;"> <br>
+<img src="img/TiempoVSHilos.png" alt="graficaTiempoVSHilos" width="500"> 
 
 Analice y plantee hipótesis con su compañero para las siguientes preguntas (puede tener en cuenta lo reportado por jVisualVM):
 
@@ -155,7 +155,7 @@ Analice y plantee hipótesis con su compañero para las siguientes preguntas (pu
 	* ¿Por qué el mejor desempeño no se logra con los 500 hilos?
 	    A pesar que en la teoria se espere que el desempeño mejore a mayor cantidad de hilos, en la practica esto no ocurre siempre ya que todos los hilos estan haciendo uso de un recurso compartido (procesador) lo cual significa que cada uno de estos debera esperar su turno para poder utilizarlo y asi garantizar la exclusión mutua, en la imagen a continuacion se ejemplifica lo antes mencionado.
 	 
-	<img src="img/pp.jpg" alt="paralelizacion" style="width: 200px;height: 200px;"> <br>
+	<img src="img/pp.jpg" alt="paralelizacion" width="500">
 	       
 	* ¿Cómo se compara este desempeño cuando se usan 200?. 
        El desempeño es mejor porque el tiempo de espera por el recurso compartido es menor.  

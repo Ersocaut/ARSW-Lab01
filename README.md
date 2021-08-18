@@ -61,6 +61,15 @@ En este metodo se utiliza la solucion "divide y venceras", esto ya que se esta h
 
 ![checkMethod](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/checkMethod.jpg)
 
+##### Probando el metodo Check
+
+* Se sabe que el HOST 202.24.34.55 está reportado en listas negras de una forma más dispersa, y que el host 212.24.24.55 NO está en ninguna lista negra.
+
+##### Direccion 202.24.34.55 (reportada)
+![ipReportada](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/ipReportada.jpg)
+
+##### Direccion 212.24.24.55 (NO reportada)
+![ipNoReportada](https://github.com/Ersocaut/ARSW-Lab01/blob/master/img/ipNoReportada.jpg)
 
 #### **Parte II.I Discusión**
 <p style="text-align:justify">
@@ -125,7 +134,7 @@ En este caso para saber cuantos nucleos de procesamiento tenemos usaremos la cla
 
 Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tiempo de solución vs. número de hilos. 
 
-<img src="img/TiempoVSHilos.png" alt="graficaTiempoVSHilos" style="max-width: 250px;max-height: 250px;"> <br>
+<img src="img/TiempoVSHilos.png" alt="graficaTiempoVSHilos" style="width: 250px;height: 250px;"> <br>
 
 Analice y plantee hipótesis con su compañero para las siguientes preguntas (puede tener en cuenta lo reportado por jVisualVM):
 
@@ -146,17 +155,17 @@ Analice y plantee hipótesis con su compañero para las siguientes preguntas (pu
 	* ¿Por qué el mejor desempeño no se logra con los 500 hilos?
 	    A pesar que en la teoria se espere que el desempeño mejore a mayor cantidad de hilos, en la practica esto no ocurre siempre ya que todos los hilos estan haciendo uso de un recurso compartido (procesador) lo cual significa que cada uno de estos debera esperar su turno para poder utilizarlo y asi garantizar la exclusión mutua, en la imagen a continuacion se ejemplifica lo antes mencionado.
 	 
-	<img src="img/pp.jpg" alt="paralelizacion" style="max-width: 250px;max-height: 250px;"> <br>
+	<img src="img/pp.jpg" alt="paralelizacion" style="width: 200px;height: 200px;"> <br>
 	       
 	* ¿Cómo se compara este desempeño cuando se usan 200?. 
        El desempeño es mejor porque el tiempo de espera por el recurso compartido es menor.  
        
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
-    Como se observa en las imagenes <a href="#hilos">Imagenes</a> el desempeño no se ve afectado cuando la cantidad de hilos no es muy alta, incluso este mejora cuando se usan 16 hilos en vez de 8 hilos.  
+    * Como se observa en las imagenes <a href="#hilos">Imagenes</a> el desempeño no se ve afectado cuando la cantidad de hilos no es muy alta, incluso este mejora cuando se usan 16 hilos en vez de 8 hilos.  
 
 
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
-Claramente mejoraria ya que a medida que se pueda involucrar más procesadores (En este caso se puede decir que cada maquina hipotetica posee su procesador), el trabajo paralelizable va a disminuir ya que no existiran sub-procesos compitiendo y esperando por el recurso a utilizar el cual seria el procesador.
+    * Claramente mejoraria ya que a medida que se pueda involucrar más procesadores (En este caso se puede decir que cada maquina hipotetica posee su procesador), el trabajo paralelizable va a disminuir ya que no existiran sub-procesos compitiendo y esperando por el recurso a utilizar el cual seria el procesador.
